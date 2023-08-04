@@ -26,7 +26,7 @@ public class UserDto {
 	private String email;
 	
 	@NotEmpty
-	@Size(min=2, max=15, message="Password length should be from 2 to 15")
+	@Size(min=4, max=15, message="Password length should be from 2 to 15")
 	private String password;
 	
 	@NotEmpty
