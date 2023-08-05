@@ -15,7 +15,7 @@ import com.nash.blog.payloads.CommentDto;
 import com.nash.blog.services.CommentService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v1")
 public class CommentController {
 	
 	@Autowired

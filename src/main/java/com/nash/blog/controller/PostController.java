@@ -30,7 +30,7 @@ import com.nash.blog.services.FileService;
 import com.nash.blog.services.PostService;
 
 @RestController
-@RequestMapping("/api/post")
+@RequestMapping("/api/v1/post")
 public class PostController {
 
 	@Autowired

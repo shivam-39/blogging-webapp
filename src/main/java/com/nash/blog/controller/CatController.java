@@ -21,7 +21,7 @@ import com.nash.blog.payloads.CatDto;
 import com.nash.blog.services.CatService;
 
 @RestController
-@RequestMapping("/api/category")
+@RequestMapping("/api/v1/category")
 public class CatController {
 	
 	@Autowired

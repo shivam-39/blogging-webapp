@@ -19,8 +19,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.Size;
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -48,7 +46,6 @@ public class User implements UserDetails{
 	private String email;
 	
 	@Column(name = "PASSWORD", nullable = false)
-	@Size(min = 4, max = 12)
 	private String password;
 	
 	@Column(name = "ABOUT", nullable = false, length = 100)
