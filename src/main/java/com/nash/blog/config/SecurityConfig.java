@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -53,11 +54,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 		.csrf().disable()
+		.cors().disable()
 		.authorizeHttpRequests()
 		.antMatchers(PUBLIC_URLS).permitAll()
-		.antMatchers(HttpMethod.GET).permitAll()
-		.anyRequest()
-		.authenticated()
+		.anyRequest().authenticated()
 		.and()
 		.exceptionHandling()
 		.authenticationEntryPoint(this.jwtAuthenticationEntryPoint)
@@ -91,7 +91,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
 		corsConfiguration.setAllowCredentials(true);
 		corsConfiguration.addAllowedOriginPattern("*");
-		corsConfiguration.addAllowedMethod("Authorization");
+		corsConfiguration.addAllowedHeader("Authorization");
 		corsConfiguration.addAllowedHeader("Content-Type");
 		corsConfiguration.addAllowedHeader("Accept");
 		corsConfiguration.addAllowedMethod("POST");
@@ -103,6 +103,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		
 		source.registerCorsConfiguration("/**", corsConfiguration);
 		FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<>(new CorsFilter(source));
+		bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
 		return bean;
 	}
 	
