@@ -5,7 +5,6 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -47,7 +46,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			"/v2/api-docs",
 			"/swagger-resources/**",
 			"/swagger-ui/**",
-			"/webjars/**"
+			"/webjars/**",
+			"/api/v1/post/**"
 	};
 	
 	@Override

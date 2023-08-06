@@ -87,7 +87,7 @@ public class PostController {
 		List<PostDto> postDtoList = this.postService.getAllByUser(userId);
 		return new ResponseEntity<>(postDtoList, HttpStatus.OK);
 	}
-	
+		
 	@GetMapping("/category/{catId}")
 	public ResponseEntity<List<PostDto>> getAllPostByCategory(@PathVariable Integer catId){
 		List<PostDto> postDtoList = this.postService.getAllByCategory(catId);
