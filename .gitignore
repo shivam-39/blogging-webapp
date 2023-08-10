@@ -6,6 +6,7 @@ target/
 
 ### properties file ###
 application.properties
+/images
 
 
 ### STS ###
