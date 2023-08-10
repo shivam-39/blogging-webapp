@@ -6,8 +6,7 @@ target/
 
 ### properties file ###
 application.properties
-/images
-
+images/**
 
 ### STS ###
 .apt_generated
